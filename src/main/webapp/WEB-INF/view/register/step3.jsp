@@ -13,7 +13,7 @@
     <title>회원가입</title>
 </head>
 <body>
-    <p><strong>${registerRequest.name}님</strong>
+    <p><strong>${formData.name}님</strong>
         회원가입을 완료했습니다.</p>
     <p><a href="<c:url value='/'/>">[첫 화면 이동]</a></p>
 </body>
