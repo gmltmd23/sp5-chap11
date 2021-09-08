@@ -2,6 +2,7 @@ package controller;
 
 import exceptions.DuplicateMemberException;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import spring.MemberRegisterService;
 import spring.RegisterRequest;
@@ -34,9 +35,10 @@ public class RegisterController {
     */
 
     @PostMapping("/register/step2")
-    public String handleStep2(@RequestParam(value = "agree", defaultValue = "false") Boolean agreeVal) {
+    public String handleStep2(@RequestParam(value = "agree", defaultValue = "false") Boolean agreeVal, Model model) {
         if (!agreeVal)
             return "register/step1";
+        model.addAttribute("registerRequest", new RegisterRequest());
         return "register/step2";
     }
     // 위에 통째로 주석쳐져있는 HttpServletRequest를 이용한 코드로 해도되고 이것처럼 @RequestParam을 이용해도된다.
